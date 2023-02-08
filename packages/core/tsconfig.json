@@ -8,6 +8,8 @@
     {"path": "../xml-id"}
   ],
   "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
     "composite": true,
     "emitDeclarationOnly": true,
     "rootDir": "src",

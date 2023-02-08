@@ -17,7 +17,6 @@
     "dev": "pnpm -C www dev",
     "preview": "pnpm -C www preview"
   },
-  "type": "module",
   "engines": {
     "node": ">=18"
   },

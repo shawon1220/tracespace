@@ -8,8 +8,7 @@
   "types": "./lib/index.d.ts",
   "exports": {
     "types": "./lib/index.d.ts",
-    "source": "./src/index.ts",
-    "import": "./dist/tracespace-identify-layers.js",
+    "import": "./src/index.ts",
     "require": "./dist/tracespace-identify-layers.umd.cjs"
   },
   "files": [
