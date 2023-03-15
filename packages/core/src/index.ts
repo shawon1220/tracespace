@@ -71,10 +71,11 @@ export async function read(files: File[] | string[]): Promise<ReadResult> {
   const parseTreesById: Record<string, GerberTree> = {}
 
   for (const { id, filename, parseTree } of parsedLayers) {
-    const { type, side } = layerTypesById[id]
-
-    layers.push({ id, filename, type, side })
-    parseTreesById[id] = parseTree
+    if (parseTree.filetype !== undefined) {
+      const { type, side } = layerTypesById[id]
+      layers.push({ id, filename, type, side })
+      parseTreesById[id] = parseTree
+    }
   }
 
   return { layers, parseTreesById }

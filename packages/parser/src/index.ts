@@ -1,9 +1,9 @@
-import type {Lexer, LexerState} from './lexer'
-import {createLexer} from './lexer'
-import {matchSyntax} from './syntax'
-import type {GerberTree, GerberNode} from './tree'
-import {ROOT} from './tree'
-import type {Filetype} from './types'
+import type { Lexer, LexerState } from './lexer'
+import { createLexer } from './lexer'
+import { matchSyntax } from './syntax'
+import type { GerberTree, GerberNode } from './tree'
+import { ROOT } from './tree'
+import type { Filetype } from './types'
 
 export * from './constants'
 export * from './lexer'
@@ -50,7 +50,7 @@ export function createParser(): Parser {
   let lexerState: LexerState | undefined
   let unmatched = ''
 
-  const parser = {lexer, feed, result}
+  const parser = { lexer, feed, result }
   return parser
 
   function feed(chunk: string): Parser {
@@ -60,17 +60,21 @@ export function createParser(): Parser {
     filetype = filetype ?? result.filetype
     unmatched = result.unmatched
     lexerState = result.lexerState ?? lexerState
-    children.push(...result.nodes)
+    // children.push(...result.nodes)
+    if (filetype !== undefined) {
+      children.push(...result.nodes)
+    }
 
     return parser
   }
 
   function result(): GerberTree {
     if (filetype === undefined) {
-      throw new Error('File type not recognized')
+      // throw new Error('File type not recognized')
+      return { type: ROOT, filetype: undefined, children }
     }
 
-    return {type: ROOT, filetype, children}
+    return { type: ROOT, filetype, children }
   }
 }
 

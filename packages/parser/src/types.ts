@@ -5,7 +5,7 @@ import type * as Constants from './constants'
 /**
  * Gerber file or NC drill file
  */
-export type Filetype = typeof Constants.GERBER | typeof Constants.DRILL
+export type Filetype = typeof Constants.GERBER | typeof Constants.DRILL | undefined
 
 /**
  * Millimeters or inches
